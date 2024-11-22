@@ -7,7 +7,7 @@ const Footer = () => {
     const [row1, row2, row3] = footMenu;
     // console.log(row1)
 
-    console.log(footSocial)
+    // console.log(footSocial)
     
   return (
     <div>

@@ -7,5 +7,77 @@
 }
 
 #btn{
-    background-color: orangered;
+    background-color: #ff4500;
+}
+
+#icon{
+    color: #ff4500;
+}
+
+#JBL{
+    background-image: url('../../public/images/products/jbl660nc-1.png');
+    width: 500px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+    margin-right: 100px;
+}
+
+#boat{
+    background-image: url('../../public/images/products/boat131-3.png');
+    width: 500px;
+    height: 500px;
+    /* z-index: 1111111111; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+    margin-right: 100px;
+}
+
+#sony{
+    background-image: url('../../public/images/products/sonyXb910n-1.png');
+    width: 500px;
+    height: 500px;
+    /* z-index: 1111111111; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+    margin-right: 100px;
+}
+
+/* Swiper pagination styling */
+
+.swiper-pagination-bullet{
+    background-color: white !important;
+}
+
+.swiper-pagination-bullet-active{
+    background-color: red !important;
+}
+
+.active{
+    background-color: #ff4500 !important;
+    border: none !important;
+}
+
+#overlap{
+    opacity: 0.1;
+    font-size: 185px;
+    position: relative;
+    bottom:380px;
+    right: 100px;
+}
+
+#overlap1{
+    opacity: 0.1;
+    font-size: 200px;
+    position: relative;
+    bottom: 385px;
+    right: 109px;
+}
+
+#content{
+    position: relative;
+    top: 100px;
 }
