@@ -56,6 +56,27 @@
     background-color: red !important;
 }
 
+/* .swiper-contrainer {
+    overflow: visible;
+} */
+  
+/* .swiper-pagination {
+    position: absolute;
+    display: block;
+    text-align: center;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 2;
+    top:97%;
+} */
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 3px) !important;
+    top: var(--swiper-pagination-top, auto);
+    left: 0;
+    width: 100%;
+}
+
 .active{
     background-color: #ff4500 !important;
     border: none !important;

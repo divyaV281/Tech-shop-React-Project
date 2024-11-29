@@ -8,21 +8,18 @@ const ProductsDetailsOverView = () => {
         <div className="row mt-5">
           <div className="col-3"></div>
           <div className="col-2">
-            <Link>
-              <button className='btn text-light' id='btn'>Specifications</button>
-            </Link>
+            <button className='btn text-light' id='btn'>Specifications</button>
           </div>
           <div className="col-2">
-          <Link>
-              <button className='btn text-light' id='btn'>Overview</button>
-            </Link>
+            <button className='btn text-light' id='btn'>Overview</button>
           </div>
           <div className="col-2">
-            <Link>
-              <button className='btn text-light' id='btn'>Reviews</button>
-            </Link>
+            <button className='btn text-light' id='btn'>Reviews</button>
           </div>
         </div>
+        {
+          
+        }
       </div>
     </>
   )

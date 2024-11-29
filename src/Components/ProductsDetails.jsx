@@ -1,47 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import productsData from '../Data/ProductsData'
-import { FaStar } from 'react-icons/fa';
 import { TiTick } from 'react-icons/ti';
 import ProductsDetailsOverView from './ProductsDetailsOverView';
 import RelatedProducts from './RelatedProducts';
+import { add } from '../Redux/addCartReducer';
+import { useDispatch } from 'react-redux';
 
 const ProductsDetails = () => {
     const {id} = useParams();
     const details = productsData[id-1];
+    const {images,title,info,rateCount,finalPrice,originalPrice,category} = details;
+    const [displayImage, setDisplayImage] = useState(images[0]);
+    const dispatch = useDispatch();
     // console.log(id);
     // console.log(productsData);
     // console.log(details);
-    const {images,title,info,rateCount,finalPrice,originalPrice,category} = details;
     // console.log(category);
-    // let star ='';
+    let star ='';
     const rating = () => {
         for(let i=1; i<=rateCount; i++){
-            if(i<=rateCount){
-            return <FaStar className='text-danger' />
-            }
-            // star += ""
+            star += "⭐"
         }
-        // return star
+        return star
     }
-    // rating()
 
-    const [img1,img2,img3,img4] = images;
     let discountPrice = originalPrice - finalPrice;
     
+    // add to cart
+    const AddCart = (list) => {
+        dispatch(add(list));
+    }
+
   return (
     <>
         <div className="container-fluid">
             <div className="row">
                 <div className="col-lg-1">
-                    <img src={img1} style={{width:'150px'}} className='border m-3 p-2' />
-                    <img src={img2} style={{width:'150px'}} className='border m-3 p-2' />
-                    <img src={img3} style={{width:'150px'}} className='border m-3 p-2' />
-                    <img src={img4} style={{width:'150px'}} className='border m-3 p-2' />
+                    {
+                        images.map(image => (
+                            <img 
+                                src = {image} 
+                                style={{width:'150px', cursor:'pointer'}} 
+                                className='border m-3 p-2' 
+                                alt='image.id' 
+                                key={image} 
+                                onClick={() => setDisplayImage(image)}
+                            />
+                        ))
+                    }
                 </div>
                 <div className="col-lg-1"></div>
                 <div className="col-lg-6">
-                    <img src={img1} style={{width:'700px'}} className='image-fluid'/>
+                    <img src={displayImage} style={{width:'700px'}} className='image-fluid' alt='' />
                 </div>
                 <div className="col-lg-3 text-start text-light">
                     <h3 className='mt-4'>{title}</h3>
@@ -58,7 +69,7 @@ const ProductsDetails = () => {
                         <button className="btn btn-outline-secondary me-2 text-start">No cost EMI on Credit card</button>
                         <button className="btn btn-outline-secondary text-start">Pay Later and Avail Casback</button>
                     </div>
-                    <button className='btn text-light mt-5 px-5' id='btn'>Add to Cart</button>
+                    <button className='btn text-light mt-5 px-5' id='btn' onClick={() => {AddCart(details)}}>Add to Cart</button>
                 </div>
             </div>
         </div>
