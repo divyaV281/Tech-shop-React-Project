@@ -15,10 +15,11 @@ const IndexSlider1 = () => {
             slidesPerView={1}
             autoplay={{delay:5000}}
             pagination={{clickable:true}}
+            className='mt-4'
         >
       <SwiperSlide>
-        <div className="text-light">
-          <div className="container">
+        {/* <div className="text-light"> */}
+          <div className="container text-light">
             <div id='JBL'></div>
             <div className='me-5'></div>
             <div className='text-start ms-5 mt-5' id='content'>
@@ -29,11 +30,11 @@ const IndexSlider1 = () => {
             </div>
             <div id='overlap'>Over Ear</div>
           </div>
-        </div>
+        {/* </div> */}
       </SwiperSlide>
       <SwiperSlide>
-        <div className="text-light">
-            <div className="container">
+        {/* <div className="text-light"> */}
+            <div className="container text-light">
               <div id='boat'></div>
               <div className='text-start ms-5 mt-5' id='content'>
                 <h4 className='mt-5 ms-5'>boAt Airdopes 131</h4>
@@ -43,11 +44,11 @@ const IndexSlider1 = () => {
               </div>
               <div id='overlap1'>In Ear</div>
             </div>
-        </div>
+        {/* </div> */}
       </SwiperSlide>
       <SwiperSlide>
-        <div className="text-light">
-          <div className="container">
+        {/* <div className="text-light"> */}
+          <div className="container text-light">
             <div id='sony'></div>
             <div className='text-start ms-5 mt-5' id='content'>
               <h4 className='mt-5 ms-5'>Sony WH-XB910N</h4>
@@ -57,7 +58,7 @@ const IndexSlider1 = () => {
             </div>
             <div id='overlap'>Over Ear</div>
           </div>
-        </div>
+        {/* </div> */}
       </SwiperSlide>
     </Swiper>
     </>

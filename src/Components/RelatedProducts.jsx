@@ -6,11 +6,18 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import './style.css'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add } from '../Redux/addCartReducer';
 // import productsData from '../Data/ProductsData'
 
 const RelatedProducts = ({category,productsData,id}) => {
     // const [{category}] = productsData;
     console.log(category,productsData,id);
+    const dispatch = useDispatch()
+
+const addCart = (item) => {
+    dispatch(add(item));
+}
 
   return (
     <>
@@ -24,7 +31,7 @@ const RelatedProducts = ({category,productsData,id}) => {
                 autoplay={{delay:5000}}
             >
                 {
-                        productsData && productsData.length > 0 && productsData.filter(ele => ele.category === category).filter(ele => ele.id != id).map(ele => (
+                        productsData && productsData.length > 0 && productsData.filter(ele => ele.category === category).filter(ele => ele.id !== id).map(ele => (
                         <SwiperSlide key={ele.id} className='text-light mb-5'>
                             <div className='id'>
                                 <div className="card bg-black border-secondary">
@@ -38,7 +45,7 @@ const RelatedProducts = ({category,productsData,id}) => {
                                             <p className='fs-4 fw-bold'>Rs.{ele.finalPrice} <strike className='fs-5 text-secondary'> Rs.{ele.originalPrice}</strike></p>
                                         </div>
                                     </Link>
-                                    <button className='btn mx-3 mb-4' id='btn'>Add to Cart</button>
+                                    <button className='btn mx-3 mb-4' id='btn' onClick={() => addCart(ele)}>Add to Cart</button>
                                 </div>
                             </div>
                         </SwiperSlide>

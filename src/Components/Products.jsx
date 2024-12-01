@@ -57,7 +57,7 @@ const Products = () => {
         </div>
 
         {/* products card */}
-        <div className="container-fluid">
+        <div className="container-fluid mt-5">
             <div className="row">
                 {
                     products && products.length > 0 && products
@@ -70,7 +70,8 @@ const Products = () => {
                                         <img src={ele.images[0]} className="card-img-top image-fluid py-3" style={{width: '200px'}} alt={ele.id}/>
                                     </div>
                                     <div className="card-body text-light text-start">
-                                        <div className='my-2'>{rating(ele.rateCount)}</div>
+                                        {/* <div className='my-2'>{rating(ele.rateCount)}</div>
+                                         */}
                                         <h5 className="card-title">{ele.title}</h5>
                                         <p className="card-text text-secondary border-bottom border-secondary pb-3">{ele.info}</p>
                                         <p className='fs-4 fw-bold'>Rs.{ele.finalPrice} <strike className='fs-5 text-secondary'> Rs.{ele.originalPrice}</strike></p>
@@ -82,12 +83,11 @@ const Products = () => {
                     ))
                 }
                 <div className="col col-lg-3">
-
-                <div className="card bg-black border-light my-3 py-4">
-                    <Link to='allProducts' className='text-decoration-none text-light m-5 p-5'>
-                        <div className='py-5 my-5 fs-4'>Browse all Products <FaLongArrowAltRight /></div>
-                    </Link>
-                </div>
+                    <div className="card bg-black border-light my-3 py-4">
+                        <Link to='allProducts' className='text-decoration-none text-light m-5 p-5'>
+                            <div className='py-5 my-4 fs-4'>Browse all Products <FaLongArrowAltRight /></div>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

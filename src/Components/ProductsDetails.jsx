@@ -34,7 +34,7 @@ const ProductsDetails = () => {
 
   return (
     <>
-        <div className="container-fluid">
+        <div className="container-fluid pt-5 mt-5">
             <div className="row">
                 <div className="col-lg-1">
                     {

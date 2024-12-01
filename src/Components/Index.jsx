@@ -12,7 +12,7 @@ const Index = () => {
     <>
       {/* <div>Index</div> */}
       <IndexSlider1 />
-      {/* <Imager3DSwiper /> */}
+      <Imager3DSwiper />
       <Products />
     </>
   )

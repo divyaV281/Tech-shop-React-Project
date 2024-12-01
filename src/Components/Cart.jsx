@@ -1,25 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 // import productsData from '../Data/ProductsData'
 import { useDispatch, useSelector } from 'react-redux'
 import { remove } from '../Redux/addCartReducer';
+import { BsFillCartXFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Cart = () => {
-  // const [product, setProduct] = useState(productsData)
   const cartList = useSelector(state => state.cartData);
+  const [{quantity}] = cartList
+  console.log(quantity);
+  
+  const [totalItems, setTotalItems] = useState(quantity)
   const dispatch = useDispatch();
 
   const removeItem = (id) => {
     dispatch(remove(id));
   }
 
+  const decrementQuantity = () => {
+    setTotalItems(quantity-1)
+  }
+
+  const incrementQuantity = () => {
+    setTotalItems(quantity+1)
+  }
+
   return (
     <>
-      <div className="container">
+      <div className="container pt-5 mt-5">
         <div className="row">
           {cartList.length<=0 ? (
              <>
-                <RiDeleteBin5Fill className='text-secondary' style={{fontSize:'300px'}} />
+               <BsFillCartXFill className='text-secondary' style={{fontSize:'300px'}} />
+               <Link to='/' className='mt-5 text-decoration-none '>
+                  <h3>Click here to continue shopping <FaArrowRight /></h3>
+               </Link>
              </>
           ):(
             <>
@@ -31,13 +48,16 @@ const Cart = () => {
                     <div className="col col-2">
                       <img src={ele.images[0]} alt="ele.id" style={{width:"100px"}} />
                     </div>
-                    <div className="col col-10">
+                    <div className="col col-10 mb-5">
                       <div className='d-flex justify-content-between' onClick={() => removeItem(ele.id)}>
                       <h5 className='text-secondary'>{ele.title}</h5>
-                      <RiDeleteBin5Fill className='text-light' style={{cursor: 'pointer'}}/>
+                      <RiDeleteBin5Fill className='text-light fs-4' style={{cursor: 'pointer'}}/>
                       </div>
                       <h5 className='text-secondary'>{ele.info}</h5>
                       <p className='fs-5 fw-bold mt-4 text-light'>Rs.{ele.finalPrice} <strike className='fs-6 text-secondary'> Rs.{ele.originalPrice}</strike></p>
+                      <button className='btn btn-secondary px-3 me-3' onClick={decrementQuantity} >-</button>
+                      <span className='text-danger fw-bold'>{totalItems}</span>
+                      <button className='btn btn-secondary px-3 ms-3' onClick={incrementQuantity} >+</button>
                     </div>
                   </div>
                   

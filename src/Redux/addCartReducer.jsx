@@ -7,7 +7,7 @@ const addCartSlice = createSlice({
         add(state, action) {
             state.push(action.payload)
             console.log(action);
-            console.log(state);
+            // console.log(state);
         },
         remove(state,action) {
             return state.filter(ele => ele.id !== (action.payload))

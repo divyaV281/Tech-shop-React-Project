@@ -77,6 +77,19 @@
     width: 100%;
 }
 
+/* .swiper-slide-active{
+    height: 300px !important;
+    background-color: white !important;
+}
+
+.swiper-slide-next{
+    background-color: green !important;
+} */
+
+/* .swiper-slide{
+    background-color: blue !important;
+} */
+
 .active{
     background-color: #ff4500 !important;
     border: none !important;

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import productsData from '../Data/ProductsData'
 import { Link } from 'react-router-dom'
 import { brandsMenu, categoryMenu, sortMenu } from '../Data/FilterBarData'
 import { useDispatch } from 'react-redux'
 import { add } from '../Redux/addCartReducer'
+// import { type } from '@testing-library/user-event/dist/type'
 
 const AllProducts = () => {
+    const [products, setProducts] = useState(productsData);
+
     const dispatch = useDispatch();
 
     // Add to cart
@@ -26,9 +29,18 @@ const AllProducts = () => {
         return star
     }
 
+    const brandSorting = (type) => {
+        // console.log(type)
+        // setProducts(products)
+        const filter = productsData.filter(ele => ele.brand == type || ele.category == type);
+        // console.log(filter);
+        setProducts(filter);
+    }
+
   return (
     <div>
-        <div className="container-fluid">
+        <div className='mt-3'>d</div>
+        <div className="container-fluid mt-5">
             <div className="row">
                 <div className="col col-lg-2">
                     <div className='text-light text-start'>
@@ -47,7 +59,11 @@ const AllProducts = () => {
                         {
                             brandsMenu && brandsMenu.length>0 && brandsMenu.map(ele => (
                                 <div key={ele.id} className='text-secondary'> 
-                                    <input type="checkbox" /> {ele.label}
+                                    <input type="checkbox" 
+                                        onChange={() => brandSorting(ele.label)}
+                                        // defaultValue={ele.label}
+                                    /> 
+                                    {ele.label}
                                     {/* <div className='text-secondary py-1'>{ele.label}</div> */}
                                 </div>
                             ))
@@ -56,7 +72,9 @@ const AllProducts = () => {
                         {
                             categoryMenu && categoryMenu.length>0 && categoryMenu.map(ele => (
                                 <div key={ele.id} className='text-secondary'>
-                                    <input type="checkbox" /> {ele.label}
+                                    <input type="checkbox"
+                                    onChange={() => brandSorting(ele.label)}
+                                    /> {ele.label}
                                     {/* <div className='text-secondary py-1'>{ele.label}</div> */}
                                 </div>
                             ))
@@ -67,7 +85,7 @@ const AllProducts = () => {
                     <div className="container">
                         <div className="row">
                             {
-                                productsData && productsData.length > 0 && productsData.map(ele => (
+                                products && products.length > 0 && products.map(ele => (
                                     <div className="col col-lg-4 my-3" key={ele.id}>
                                         <div className="card bg-black border-light">
                                             <Link to={`/productsDetails/${ele.id}`} className='text-decoration-none'>
