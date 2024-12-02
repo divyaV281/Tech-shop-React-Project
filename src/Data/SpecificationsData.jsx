@@ -1,8 +1,22 @@
+
 export const specifications = [
-    Brand,
-    Model,
-    Generic-Name,
-    HeadPhone-Type,
-    Connectivity,
-    Microphone
+    {
+        Brand:'a',
+        Model:'a',
+        GenericName:'h',
+        HeadPhone:'Type',
+        Connectivity:'j',
+        Microphone:'n',
+    },
+    {
+        Brand:'b',
+        HeadPhone:'Type',
+        Connectivity:'j',
+    },
+    {
+        Brand:'c',
+        Model:'a',
+        GenericName:'h',
+    }
+
 ]

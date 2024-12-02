@@ -115,3 +115,13 @@
     position: relative;
     top: 100px;
 }
+
+/* header -- login */
+#popup{
+    display: none;
+}
+
+#hoverData:hover ~ #popup {
+    display: block;
+    color: aqua !important;
+}

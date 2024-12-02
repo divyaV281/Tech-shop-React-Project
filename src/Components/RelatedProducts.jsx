@@ -31,7 +31,7 @@ const addCart = (item) => {
                 autoplay={{delay:5000}}
             >
                 {
-                        productsData && productsData.length > 0 && productsData.filter(ele => ele.category === category).filter(ele => ele.id !== id).map(ele => (
+                        productsData && productsData.length > 0 && productsData.filter(ele => ele.category === category).filter(ele => ele.id != id).map(ele => (
                         <SwiperSlide key={ele.id} className='text-light mb-5'>
                             <div className='id'>
                                 <div className="card bg-black border-secondary">

@@ -9,23 +9,23 @@ import { FaArrowRight } from 'react-icons/fa';
 
 const Cart = () => {
   const cartList = useSelector(state => state.cartData);
-  const [{quantity}] = cartList
-  console.log(quantity);
+  // const [{quantity}] = cartList
+  // console.log(quantity);
   
-  const [totalItems, setTotalItems] = useState(quantity)
+  // const [totalItems, setTotalItems] = useState(quantity)
   const dispatch = useDispatch();
 
   const removeItem = (id) => {
     dispatch(remove(id));
   }
 
-  const decrementQuantity = () => {
-    setTotalItems(quantity-1)
-  }
+  // const decrementQuantity = () => {
+  //   setTotalItems(quantity-1)
+  // }
 
-  const incrementQuantity = () => {
-    setTotalItems(quantity+1)
-  }
+  // const incrementQuantity = () => {
+  //   setTotalItems(quantity+1)
+  // }
 
   return (
     <>
@@ -55,9 +55,9 @@ const Cart = () => {
                       </div>
                       <h5 className='text-secondary'>{ele.info}</h5>
                       <p className='fs-5 fw-bold mt-4 text-light'>Rs.{ele.finalPrice} <strike className='fs-6 text-secondary'> Rs.{ele.originalPrice}</strike></p>
-                      <button className='btn btn-secondary px-3 me-3' onClick={decrementQuantity} >-</button>
+                      {/* <button className='btn btn-secondary px-3 me-3' onClick={decrementQuantity} >-</button>
                       <span className='text-danger fw-bold'>{totalItems}</span>
-                      <button className='btn btn-secondary px-3 ms-3' onClick={incrementQuantity} >+</button>
+                      <button className='btn btn-secondary px-3 ms-3' onClick={incrementQuantity} >+</button> */}
                     </div>
                   </div>
                   

@@ -73,7 +73,7 @@ const ProductsDetails = () => {
                 </div>
             </div>
         </div>
-        <ProductsDetailsOverView />
+        <ProductsDetailsOverView details={details} />
         <RelatedProducts category={category} productsData={productsData} id={id} />
     </>
   )
