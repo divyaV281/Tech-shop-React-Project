@@ -14,6 +14,8 @@ const AllProducts = () => {
     // Add to cart
     const AddCart = (list) => {
         dispatch(add(list));
+        console.log(list);
+        
     }
 
     console.log(sortMenu);

@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { CiSearch, CiUser } from 'react-icons/ci'
+// import { CiSearch, CiUser } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
 import SearchInput from '../Components/SearchInput'
 import Login from '../Components/Login'
+import { useSelector } from 'react-redux'
 
 const NavBar = () => {
+  // to display the count in header
+  const [totalQuantity, setTotalQuantity] = useState(0)
+  const cartLength = useSelector(state => state.cartData.list );
+
+  useEffect(()=>{
+    let totalLength=0;
+    cartLength.forEach(item => totalLength += item.quantity);
+    setTotalQuantity(totalLength)
+  },[cartLength])
+
   return (
     <>
       <div className='bg-black fixed-top mb-5'>
@@ -18,8 +29,9 @@ const NavBar = () => {
           </div>
               <SearchInput />
           <div>
-            <Link to='/cart'> 
-              <AiOutlineShoppingCart className='text-light mx-4 fs-3' title='Cart' /> 
+            <Link to='/cart' className='text-decoration-none text-light d-flex'> 
+              <AiOutlineShoppingCart className='text-light fs-3' title='Cart' /> 
+              <span>({totalQuantity})</span>
             </Link>
           </div>
           <div>

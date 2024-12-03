@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { specifications } from '../Data/SpecificationsData';
+// import { specifications } from '../Data/SpecificationsData';
 import reviewsData from '../Data/ReviewsData';
 // import { Link } from 'react-router-dom'
 // specifications
