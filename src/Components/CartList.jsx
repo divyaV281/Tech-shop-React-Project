@@ -39,15 +39,6 @@ const CartList = ({list}) => {
         dispatch(remove(id));
       }
 
-    //   let totalPrice;
-    //   totalPrice += quantity * cartItem.finalPrice;
-    //   console.log(totalPrice);
-      
-    // let totalPrice=0 ;
-    // totalPrice +=  cartItem.finalPrice * quantity
-    // grandTotal += totalPrice
-    // console.log(totalPrice)
-    // console.log(quantity * cartItem.finalPrice);
     
     return (
     <>

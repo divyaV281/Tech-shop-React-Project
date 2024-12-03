@@ -3,8 +3,8 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 // import { CiSearch, CiUser } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
 import SearchInput from '../Components/SearchInput'
-import Login from '../Components/Login'
 import { useSelector } from 'react-redux'
+import SignIn from '../Components/SignIn'
 
 const NavBar = () => {
   // to display the count in header
@@ -35,7 +35,7 @@ const NavBar = () => {
             </Link>
           </div>
           <div>
-            <Login />
+            <SignIn />
             {/* <Link> 
               <CiUser className='text-light mx-4 fs-3' title='Login/SignIn' /> 
             </Link> */}
